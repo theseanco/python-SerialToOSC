@@ -16,14 +16,14 @@ I wrote the script that this generator was based on to convert a high-rate strea
 
 This generator assumes that you are sending messages in a certain format, that is:
 * the message starts with the string ```msg= ``` - this is part of a crude catching mechanism to stop python trying to parse any noise, which was quite common when I was working on these projects
-* all messages are sent at once on line (ending with Serial.println)
+* all messages are sent at once on line (and the line ends with ```Serial.println```)
 * individual messages within these lines are separated by spaces
 
 An example message from Arduino in the Serial Monitor would look something like this:
 
 ```msg= 400 49.9999 329 10 3 1 foo```
 
-When this is set up (an example is in Examples/ExampleArduinoSketch/), running the script generator using ```python scriptGenerator.py``` will create a script to parse your data. You will give it the following information:
+When this is set up (an example is in ```Examples/ExampleArduinoSketch/```), running the script generator using ```python scriptGenerator.py``` will create a script to parse your data. You will give it the following information:
 
 1. Name of your script (make sure it ends in .py)
 2. The IP address you want to send the OSC messages to
@@ -38,12 +38,12 @@ Then insert your Arduino, and assuming all of the data you provided matches what
 
 ## Example
 
-There is a short example in the Examples folder, containing an Arduino sketch which sends the values of A0 and A1, a Python script which parses the two values and sends them to SuperCollider's default ports (if you are using this script your port may need changing from /dev/ttyACM0), and SuperCollider code to dump the OSC to the post window, and then use it to control some sine waves.
+There is a short example in the ```Examples``` folder, containing an Arduino sketch which sends the values of ```A0``` and ```A1```, a Python script which parses the two values and sends them to SuperCollider's default ports (if you are using this script your port may need changing from ```/dev/ttyACM0```), and SuperCollider code to dump the OSC to the post window, and then use it to control some sine waves.
 
 ------------------------
 
 This is primitive and is designed to work for this very particular instance of Arduino usage, but seeing as i've used it an awful lot myself I figured a write-up would be useful to someone at the very least. It has only been tested on the *ubuntus, but I don't see why it wouldn't work on OSX. If you've tested it please let me know how you get on.
 
-NB: The script may have some trouble dealing with exceptionally fast data streams (if the script keeps terminating with invalid literal) - one solution for this is to just keep trying to run the script over and over again until it takes, or to slow your data down. :).
+NB: The script may have some trouble dealing with exceptionally fast data streams (if the script keeps terminating with ```invalid literal```) - one solution for this is to just keep trying to run the script over and over again until it takes, or to slow your data down. :).
 
 Sean
