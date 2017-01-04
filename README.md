@@ -15,7 +15,7 @@ Tested on various versions of *ubuntu 14.04 upwards
 I wrote the script that this generator was based on to convert a high-rate stream of orientation data coming from an Arduino over Serial into OSC messages so that they could be used in Processing, and later in SuperCollider. I've ended up using this format for almost every project that needed Arduino serial parsing since, as it is easy, quick and will keep running in the background if other programs crash.
 
 This generator assumes that you are sending messages in a certain format, that is:
-* the message starts with the string "msg= " - this is part of a crude catching mechanism to stop python trying to parse any noise, which was quite common when I was working on these projects
+* the message starts with the string ```msg= ``` - this is part of a crude catching mechanism to stop python trying to parse any noise, which was quite common when I was working on these projects
 * all messages are sent at once on line (ending with Serial.println)
 * individual messages within these lines are separated by spaces
 
@@ -27,12 +27,12 @@ When this is set up (an example is in Examples/ExampleArduinoSketch/), running t
 
 1. Name of your script (make sure it ends in .py)
 2. The IP address you want to send the OSC messages to
-3. The port you will be sending to (for example 57120 for SuperCollider)
-4. The serial port you will be reading from (for example /dev/ttyACM0)
+3. The port you will be sending to (for example ```57120``` for SuperCollider)
+4. The serial port you will be reading from (for example ```/dev/ttyACM0```)
 5. The Baud rate of the Arduino
-6. The number of values in the stream (not including "msg= ")
-7. The address you want to send each individual message to (a / is added automatically - so data/movement/x will send to /data/movement/x)
-8. The data type of each individual message (str, int, float and suchlike. These are casted in python, so if you have some unusual data see Python's [conversion functions](https://docs.python.org/2/library/functions.html) 
+6. The number of values in the stream (not including ```msg= ```)
+7. The address you want to send each individual message to (a / is added automatically - so ```data/movement/x``` will send to ```/data/movement/x```)
+8. The data type of each individual message (```str```, ```int```, ```float``` and suchlike. These are casted in python, so if you have some unusual data see Python's [conversion functions](https://docs.python.org/2/library/functions.html) 
 
 Then insert your Arduino, and assuming all of the data you provided matches what is going on, the Serial data should be converted to OSC and sent to the specified IP address and port.
 
