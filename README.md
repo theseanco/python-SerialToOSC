@@ -34,7 +34,7 @@ When this is set up (an example is in ```Examples/ExampleArduinoSketch/```), run
 7. The address you want to send each individual message to (a / is added automatically - so ```data/movement/x``` will send to ```/data/movement/x```)
 8. The data type of each individual message (```str```, ```int```, ```float``` and suchlike. These are casted in python, so if you have some unusual data see Python's [conversion functions](https://docs.python.org/2/library/functions.html) 
 
-Then insert your Arduino, and assuming all of the data you provided matches what is going on, the Serial data should be converted to OSC and sent to the specified IP address and port.
+Then insert your Arduino, and assuming all of the data you provided matches what is going on, run the script you created using ```python SCRIPTNAME.py``` in the terminal and the Serial data should be converted to OSC and sent to the specified IP address and port.
 
 ## Example
 
