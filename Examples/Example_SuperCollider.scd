@@ -1,3 +1,5 @@
+//First upload the test sketch to an Arduino and then run the included test script (making sure the serial port is correct)
+
 //run this to check the message is getting through - check the post window
 OSCFunc.trace
 
